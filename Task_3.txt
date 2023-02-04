@@ -1,0 +1,91 @@
+package abc;
+import java.util.Scanner;
+
+public class ATM {
+	
+	
+	public static void  Custumer_Data() {
+		   
+		   Scanner sc = new Scanner(System.in);
+		   int balance = 10000, withdraw, deposit;  
+    
+	        while(true)  
+	        {  
+	             
+	            System.out.println("1 -> Withdraw");  
+	            System.out.println("2 -> Deposit");  
+	            System.out.println("3 -> Check Balance");  
+	            System.out.println("4 -> EXIT");  
+	            System.out.print("Choose the operation you want to perform:");  
+	              
+	            //get choice from user  
+	            int choice = sc.nextInt();  
+	            if(choice==1) {
+			        System.out.print("Enter money to be withdrawn:");  
+			                      
+			        //get the withdrawl money from user  
+			        withdraw = sc.nextInt();  
+			                      
+			        //check whether the balance is greater than or equal to the withdrawal amount  
+			        if(balance >= withdraw)  
+			        {  
+			            //remove the withdrawl amount from the total balance  
+			            balance = balance - withdraw;  
+			            System.out.println("Please collect your money");  
+			        }  
+			        else  
+			        {  
+			            //show custom error message   
+			            System.out.println("Insufficient Balance");  
+			        }  
+			        System.out.println("");  
+			        
+			       
+	            }else if(choice==2) {
+			                      
+			        System.out.print("Enter money to be deposited:");  
+			                      
+			        //get deposite amount from te user  
+			        deposit = sc.nextInt();  
+			                      
+			        //add the deposit amount to the total balanace  
+			        balance = balance + deposit;  
+			        System.out.println("Your Money has been successfully depsited");  
+			        System.out.println("");  
+			          
+			     }else if(choice==3) {
+			        //displaying the total balance of the user  
+			        System.out.println("Balance : "+balance);  
+			        System.out.println("");  
+			        
+			     } else {
+			        //exit from the menu  
+			        System.exit(0);  
+			        
+	                }
+	              
+	        }  
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc = new Scanner(System.in); 
+		
+		System.out.println("Insert your ATM Card");
+		System.out.println("Enter the PIN");
+		
+		int PIN=sc.nextInt();
+		
+		if(PIN==1234) {
+			 System.out.println("ATM Machine");
+			 
+			 Custumer_Data();
+		}else {
+			System.out.println("You entered the wrong PIN");
+		}
+	
+
+	}
+
+}
